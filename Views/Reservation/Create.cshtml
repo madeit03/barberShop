@@ -1,0 +1,60 @@
+@model Reservation
+@using BarberShopReservation.Models
+
+@{
+    ViewData["Title"] = "Nowa rezerwacja";
+    var service = ViewBag.Service as Service;
+    var timeSlots = ViewBag.TimeSlots as List<TimeSlot>;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Rezerwuj: @service?.Name</h2>
+
+                <div class="alert alert-info">
+                    <p><strong>Usługa:</strong> @service?.Name</p>
+                    <p><strong>Cena:</strong> @service?.Price.ToString("C")</p>
+                    <p><strong>Czas trwania:</strong> @service?.DurationMinutes minut</p>
+                </div>
+
+                <form method="post">
+                    <input type="hidden" name="serviceId" value="@service?.Id">
+
+                    <div class="mb-3">
+                        <label for="TimeSlots" class="form-label">Wybierz dostępny termin</label>
+                        <select class="form-control" id="TimeSlots" name="timeSlotId" required>
+                            <option value="">-- Wybierz termin --</option>
+                            @if (timeSlots != null)
+                            {
+                                @foreach (var slot in timeSlots)
+                                {
+                                    <option value="@slot.Id">@slot.StartTime.ToString("dd.MM.yyyy HH:mm")</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Notes" class="form-label">Notatki (opcjonalnie)</label>
+                        <textarea class="form-control" id="Notes" name="notes" rows="3" placeholder="Dodaj jakiekolwiek notatki do rezerwacji"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Potwierdź rezerwację</button>
+                    <a href="/" class="btn btn-outline-secondary">Anuluj</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelector('#TimeSlots').addEventListener('change', function() {
+            if (this.value) {
+                console.log('Wybrany termin: ' + this.options[this.selectedIndex].text);
+            }
+        });
+    </script>
+}

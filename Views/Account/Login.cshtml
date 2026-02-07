@@ -1,0 +1,47 @@
+@using BarberShopReservation.Controllers
+@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Logowanie";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Zaloguj się</h2>
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="Email" asp-for="Email" required>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Password" class="form-label">Hasło</label>
+                        <input type="password" class="form-control" id="Password" asp-for="Password" required>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="RememberMe" asp-for="RememberMe">
+                        <label class="form-check-label" for="RememberMe">
+                            Zapamiętaj mnie
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Zaloguj się</button>
+                </form>
+
+                <p class="text-center mt-3">
+                    Nie masz konta? <a href="/Account/Register">Zarejestruj się</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

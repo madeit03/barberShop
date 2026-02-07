@@ -1,0 +1,59 @@
+@model IEnumerable<Service>
+
+@{
+    ViewData["Title"] = "Zarządzanie Usługami";
+}
+
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Zarządzanie Usługami</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="/Admin/CreateService" class="btn btn-primary">+ Dodaj usługę</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>Czas trwania (min)</th>
+                <th>Aktywna</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var service in Model ?? Enumerable.Empty<Service>())
+            {
+                <tr>
+                    <td>@service.Name</td>
+                    <td>@service.Description</td>
+                    <td>@service.Price.ToString("C")</td>
+                    <td>@service.DurationMinutes</td>
+                    <td>
+                        @if (service.IsActive)
+                        {
+                            <span class="badge bg-success">Tak</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Nie</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="/Admin/EditService/@service.Id" class="btn btn-sm btn-info">Edytuj</a>
+                        <form method="post" action="/Admin/DeleteService/@service.Id" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć tę usługę?')">Usuń</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a href="/Admin/Dashboard" class="btn btn-outline-secondary mt-3">Powrót do panelu</a>

@@ -1,0 +1,47 @@
+@model IEnumerable<TimeSlot>
+
+@{
+    ViewData["Title"] = "Zarządzanie Terminami";
+}
+
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Zarządzanie Terminami</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="/Admin/CreateTimeSlot" class="btn btn-primary">+ Dodaj termin</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Usługa</th>
+                <th>Data i godzina</th>
+                <th>Dostępny</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var timeSlot in Model ?? Enumerable.Empty<TimeSlot>())
+            {
+                <tr>
+                    <td>@timeSlot.Service?.Name</td>
+                    <td>@timeSlot.StartTime.ToString("dd.MM.yyyy HH:mm") - @timeSlot.EndTime.ToString("HH:mm")</td>
+                    <td>
+                        @if (timeSlot.IsAvailable)
+                        {
+                            <span class="badge bg-success">Tak</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Zarezerwowany</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a href="/Admin/Dashboard" class="btn btn-outline-secondary mt-3">Powrót do panelu</a>

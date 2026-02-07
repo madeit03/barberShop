@@ -1,0 +1,87 @@
+@model IEnumerable<Reservation>
+
+@{
+    ViewData["Title"] = "Zarządzanie Rezerwacjami";
+}
+
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>Zarządzanie Rezerwacjami</h2>
+    </div>
+    <div class="col-md-4">
+        <form method="get" class="d-flex gap-2">
+            <select class="form-control" name="status">
+                <option value="">-- Wszystkie statusy --</option>
+                <option value="Pending">Oczekujące</option>
+                <option value="Approved">Zatwierdzone</option>
+                <option value="Cancelled">Anulowane</option>
+            </select>
+            <button type="submit" class="btn btn-outline-primary">Filtruj</button>
+        </form>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Użytkownik</th>
+                <th>Usługa</th>
+                <th>Data i godzina</th>
+                <th>Status</th>
+                <th>Data rezerwacji</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model ?? Enumerable.Empty<Reservation>())
+            {
+                <tr>
+                    <td>@reservation.User?.UserName</td>
+                    <td>@reservation.Service?.Name</td>
+                    <td>@reservation.TimeSlot?.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        @switch (reservation.Status)
+                        {
+                            case "Pending":
+                                <span class="badge bg-warning">Oczekująca</span>
+                                break;
+                            case "Approved":
+                                <span class="badge bg-success">Zatwierdzona</span>
+                                break;
+                            case "Cancelled":
+                                <span class="badge bg-danger">Anulowana</span>
+                                break;
+                            default:
+                                <span class="badge bg-secondary">@reservation.Status</span>
+                                break;
+                        }
+                    </td>
+                    <td>@reservation.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>
+                        @if (reservation.Status == "Pending")
+                        {
+                            <form method="post" action="/Admin/ApproveReservation/@reservation.Id" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-success">Zatwierdź</button>
+                            </form>
+                            <form method="post" action="/Admin/RejectReservation/@reservation.Id" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger">Odrzuć</button>
+                            </form>
+                        }
+                        else if (reservation.Status == "Approved")
+                        {
+                            <form method="post" action="/Admin/RejectReservation/@reservation.Id" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger">Anuluj</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a href="/Admin/Dashboard" class="btn btn-outline-secondary mt-3">Powrót do panelu</a>

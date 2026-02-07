@@ -1,0 +1,45 @@
+@model Reservation
+
+@{
+    ViewData["Title"] = "Edytuj rezerwację";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Edytuj rezerwację</h2>
+
+                <div class="mb-3">
+                    <label class="form-label">Usługa</label>
+                    <input type="text" class="form-control" value="@Model?.Service?.Name" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Data i godzina</label>
+                    <input type="text" class="form-control" value="@Model?.TimeSlot?.StartTime.ToString("dd.MM.yyyy HH:mm")" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Cena</label>
+                    <input type="text" class="form-control" value="@Model?.Service?.Price.ToString("C")" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <input type="text" class="form-control" value="@Model?.Status" disabled>
+                </div>
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="Notes" class="form-label">Notatki</label>
+                        <textarea class="form-control" id="Notes" name="notes" rows="3">@Model?.Notes</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                    <a href="/Reservation/Index" class="btn btn-outline-secondary">Anuluj</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

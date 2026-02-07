@@ -1,0 +1,41 @@
+@model TimeSlot
+
+@{
+    ViewData["Title"] = "Dodaj termin";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Dodaj nowy termin</h2>
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="ServiceId" class="form-label">Usługa</label>
+                        <select class="form-control" id="ServiceId" name="serviceId" required>
+                            <option value="">-- Wybierz usługę --</option>
+                            @foreach (var service in ViewBag.Services ?? new List<Service>())
+                            {
+                                <option value="@service.Id">@service.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="StartTime" class="form-label">Data i godzina</label>
+                        <input type="datetime-local" class="form-control" id="StartTime" name="startTime" asp-for="StartTime" required>
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Dodaj termin</button>
+                    <a href="/Admin/TimeSlots" class="btn btn-outline-secondary">Anuluj</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

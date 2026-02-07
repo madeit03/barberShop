@@ -1,0 +1,77 @@
+@model IEnumerable<Reservation>
+
+@{
+    ViewData["Title"] = "Moje Rezerwacje";
+}
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h2 class="mb-4">Moje Rezerwacje</h2>
+    </div>
+</div>
+
+@if (Model?.Count() == 0)
+{
+    <div class="alert alert-info">
+        <p>Nie masz jeszcze żadnych rezerwacji. <a href="/">Przejdź do usług</a></p>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Usługa</th>
+                    <th>Data i godzina</th>
+                    <th>Status</th>
+                    <th>Data rezerwacji</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reservation in Model ?? Enumerable.Empty<Reservation>())
+                {
+                    <tr>
+                        <td>@reservation.Service?.Name</td>
+                        <td>@reservation.TimeSlot?.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td>
+                            @switch (reservation.Status)
+                            {
+                                case "Pending":
+                                    <span class="badge bg-warning">Oczekująca</span>
+                                    break;
+                                case "Approved":
+                                    <span class="badge bg-success">Zatwierdzona</span>
+                                    break;
+                                case "Cancelled":
+                                    <span class="badge bg-danger">Anulowana</span>
+                                    break;
+                                default:
+                                    <span class="badge bg-secondary">@reservation.Status</span>
+                                    break;
+                            }
+                        </td>
+                        <td>@reservation.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                        <td>
+                            @if (reservation.Status != "Cancelled" && reservation.Status != "Approved")
+                            {
+                                <a href="/Reservation/Edit/@reservation.Id" class="btn btn-sm btn-info">Edytuj</a>
+                                <form method="post" action="/Reservation/Cancel/@reservation.Id" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Czy na pewno chcesz anulować rezerwację?')">Anuluj</button>
+                                </form>
+                            }
+                            @if (reservation.Status == "Cancelled")
+                            {
+                                <span class="text-muted">Rezerwacja anulowana</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<a href="/" class="btn btn-outline-primary mt-3">Powrót do usług</a>

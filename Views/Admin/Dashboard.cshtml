@@ -1,0 +1,100 @@
+@model IEnumerable<Reservation>
+
+@{
+    ViewData["Title"] = "Panel Administratora";
+}
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h2 class="mb-4">Panel Administratora</h2>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Rezerwacje</h5>
+                <h2 class="text-primary">@ViewBag.TotalReservations</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Oczekujące</h5>
+                <h2 class="text-warning">@ViewBag.PendingReservations</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Zatwierdzone</h5>
+                <h2 class="text-success">@ViewBag.ApprovedReservations</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Usługi</h5>
+                <h2 class="text-info">@ViewBag.TotalServices</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="btn-group" role="group">
+            <a href="/Admin/Services" class="btn btn-outline-primary">Zarządzaj Usługami</a>
+            <a href="/Admin/TimeSlots" class="btn btn-outline-primary">Zarządzaj Terminami</a>
+            <a href="/Admin/Reservations" class="btn btn-outline-primary">Zarządzaj Rezerwacjami</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Ostatnie rezerwacje</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Użytkownik</th>
+                        <th>Usługa</th>
+                        <th>Data i godzina</th>
+                        <th>Status</th>
+                        <th>Data rezerwacji</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var reservation in Model ?? Enumerable.Empty<Reservation>())
+                    {
+                        <tr>
+                            <td>@reservation.User?.UserName</td>
+                            <td>@reservation.Service?.Name</td>
+                            <td>@reservation.TimeSlot?.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>
+                                @switch (reservation.Status)
+                                {
+                                    case "Pending":
+                                        <span class="badge bg-warning">Oczekująca</span>
+                                        break;
+                                    case "Approved":
+                                        <span class="badge bg-success">Zatwierdzona</span>
+                                        break;
+                                    default:
+                                        <span class="badge bg-secondary">@reservation.Status</span>
+                                        break;
+                                }
+                            </td>
+                            <td>@reservation.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
