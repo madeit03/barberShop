@@ -10,11 +10,9 @@ namespace BarberShopReservation.Data
         {
             await context.Database.MigrateAsync();
 
-            // Check if data already exists
             if (await context.Services.AnyAsync())
                 return;
 
-            // Add sample services
             var services = new List<Service>
             {
                 new Service
@@ -67,7 +65,6 @@ namespace BarberShopReservation.Data
             await context.Services.AddRangeAsync(services);
             await context.SaveChangesAsync();
 
-            // Add sample time slots
             var timeSlots = new List<TimeSlot>();
             var baseDate = DateTime.UtcNow.AddDays(1).Date.AddHours(9);
 
@@ -80,7 +77,6 @@ namespace BarberShopReservation.Data
                         var startTime = baseDate.AddDays(day).AddHours(hour - 9);
                         var endTime = startTime.AddMinutes(service.DurationMinutes);
 
-                        // Skip Sundays
                         if (startTime.DayOfWeek != DayOfWeek.Sunday)
                         {
                             timeSlots.Add(new TimeSlot
