@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hFFeLPlQvrQ=",
+  "dgSpecHash": "4fZiYlRx6X4=",
   "success": true,
-  "projectFilePath": "C:\\Projects\\mvcPK\\BarberShopReservation\\BarberShopReservation.csproj",
+  "projectFilePath": "C:\\Projects\\BarberShopReservation\\BarberShopReservation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mmati\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\mmati\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -9,89 +9,89 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BarberShopReservation
 build_property.RootNamespace = BarberShopReservation
-build_property.ProjectDir = C:\Projects\mvcPK\BarberShopReservation\
+build_property.ProjectDir = C:\Projects\BarberShopReservation\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Projects\mvcPK\BarberShopReservation
+build_property.MSBuildProjectDirectory = C:\Projects\BarberShopReservation
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Account/Login.cshtml]
+[C:/Projects/BarberShopReservation/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Account/Register.cshtml]
+[C:/Projects/BarberShopReservation/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/CreateService.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/CreateService.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlU2VydmljZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/CreateTimeSlot.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/CreateTimeSlot.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlVGltZVNsb3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/Dashboard.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/EditService.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/EditService.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFNlcnZpY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/Reservations.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/Reservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVzZXJ2YXRpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/Services.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/Services.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Admin/TimeSlots.cshtml]
+[C:/Projects/BarberShopReservation/Views/Admin/TimeSlots.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGltZVNsb3RzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Home/Index.cshtml]
+[C:/Projects/BarberShopReservation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Home/Privacy.cshtml]
+[C:/Projects/BarberShopReservation/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Reservation/Create.cshtml]
+[C:/Projects/BarberShopReservation/Views/Reservation/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Reservation/Edit.cshtml]
+[C:/Projects/BarberShopReservation/Views/Reservation/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Reservation/Index.cshtml]
+[C:/Projects/BarberShopReservation/Views/Reservation/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Shared/Error.cshtml]
+[C:/Projects/BarberShopReservation/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Projects/BarberShopReservation/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/_ViewImports.cshtml]
+[C:/Projects/BarberShopReservation/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/_ViewStart.cshtml]
+[C:/Projects/BarberShopReservation/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Projects/mvcPK/BarberShopReservation/Views/Shared/_Layout.cshtml]
+[C:/Projects/BarberShopReservation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qbp6ynxrpy
