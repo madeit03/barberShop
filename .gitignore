@@ -1,0 +1,43 @@
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.iml
+*.user
+*.userosscache
+*.suo
+
+# User-specific files
+*.rsuser
+*.vcxproj.filters
+
+# Local development settings
+appsettings.Development.json
+appsettings.Local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+packages/
+
+# Build output
+*.log
+*.trx
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# NuGet
+*.nupkg
+.nuget/
